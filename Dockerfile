@@ -8,7 +8,8 @@
 # (c) Pete Birley
 
 # Pull base image.
-FROM dockerfile/ubuntu
+#FROM dockerfile/ubuntu
+FROM ubuntu:14.04
 
 # Setup enviroment variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -47,7 +48,8 @@ RUN chmod +x /usr/local/etc/gnome-docker-fix-and-customise.sh
 RUN mkdir -p /root/.vnc
 ADD https://raw.githubusercontent.com/CannyComputing/Dockerfile-Ubuntu-Gnome/master/xstartup /root/.vnc/xstartup
 RUN chmod 755 /root/.vnc/xstartup
-ADD https://raw.githubusercontent.com/CannyComputing/Dockerfile-Ubuntu-Gnome/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
+#ADD https://raw.githubusercontent.com/CannyComputing/Dockerfile-Ubuntu-Gnome/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
+ADD https://raw.githubusercontent.com/yut148/Dockerfile-Ubuntu-Gnome/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
 RUN chmod +x /usr/local/etc/spawn-desktop.sh
 RUN apt-get install -y expect
 ADD https://raw.githubusercontent.com/CannyComputing/Dockerfile-Ubuntu-Gnome/master/start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
